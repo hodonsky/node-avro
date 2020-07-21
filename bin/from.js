@@ -11,7 +11,9 @@ var _factories = require("./factories");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var fromAVRO = (content, AVRORule, is) => {
+var fromAVRO = function fromAVRO(content, AVRORule) {
+  var is = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+
   try {
     var response, error;
     var Type = (({

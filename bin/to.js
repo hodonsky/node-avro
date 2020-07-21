@@ -18,7 +18,9 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 var toAVRO = /*#__PURE__*/function () {
-  var _ref = _asyncToGenerator(function* (obj, AVRORule, is) {
+  var _ref = _asyncToGenerator(function* (obj, AVRORule) {
+    var is = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+
     try {
       var response, error;
       var Type = (({
@@ -49,7 +51,7 @@ var toAVRO = /*#__PURE__*/function () {
     }
   });
 
-  return function toAVRO(_x, _x2, _x3) {
+  return function toAVRO(_x, _x2) {
     return _ref.apply(this, arguments);
   };
 }();
