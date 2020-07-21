@@ -1,6 +1,6 @@
 {
   "name": "@donsky/node-avro",
-  "version": "0.2.12",
+  "version": "0.2.13",
   "description": "NodeJS AVRO Helpers for @donsky namespace",
   "main": "./bin/index.js",
   "directories": {

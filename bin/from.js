@@ -19,7 +19,7 @@ var fromAVRO = function fromAVRO(content, AVRORule) {
     var Type = (({
       response,
       error
-    } = is), response ? _avsc.default.Type.forSchema([(0, _factories.actionContractFactory)("RequestContract", AVRORule)]) : error ? _avsc.default.Type.forSchema([(0, _factories.errorContractFactory)("RequestContract", AVRORule)]) : _avsc.default.Type.forSchema([(0, _factories.responseContractFactory)("ResponseContract", AVRORule)]));
+    } = is), response ? _avsc.default.Type.forSchema([(0, _factories.responseContractFactory)("ResponseContract", AVRORule)]) : error ? _avsc.default.Type.forSchema([(0, _factories.errorContractFactory)("RequestContract", AVRORule)]) : _avsc.default.Type.forSchema([(0, _factories.actionContractFactory)("RequestContract", AVRORule)]));
     return Type.fromBuffer(content);
   } catch (error) {
     throw {
