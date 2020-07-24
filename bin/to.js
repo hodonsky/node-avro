@@ -26,11 +26,13 @@ var toAVRO = /*#__PURE__*/function () {
       var Type = (({
         response,
         error
-      } = is), response ? _avsc.default.Type.forSchema([(0, _factories.responseContractFactory)("ResponseContract", AVRORule)]) : error ? _avsc.default.Type.forSchema([(0, _factories.errorContractFactory)("RequestContract", AVRORule)]) : _avsc.default.Type.forSchema([(0, _factories.actionContractFactory)("RequestContract", AVRORule)]));
+      } = is), response ? _avsc.default.Type.forSchema([(0, _factories.responseContractFactory)("ResponseContract", AVRORule)]) : error ? _avsc.default.Type.forSchema([(0, _factories.errorContractFactory)()]) : _avsc.default.Type.forSchema([(0, _factories.actionContractFactory)("RequestContract", AVRORule)]));
 
       try {
         if (yield (0, _typeCheck.isContentValidType)(Type, obj)) {
-          return Type.toBuffer(obj);
+          var _obj;
+
+          return _obj = obj, Type.toBuffer(_obj);
         }
       } catch (error) {
         throw {

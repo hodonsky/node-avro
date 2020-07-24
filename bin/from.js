@@ -15,12 +15,13 @@ var fromAVRO = function fromAVRO(content, AVRORule) {
   var is = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 
   try {
-    var response, error;
+    var response, error, _content;
+
     var Type = (({
       response,
       error
-    } = is), response ? _avsc.default.Type.forSchema([(0, _factories.responseContractFactory)("ResponseContract", AVRORule)]) : error ? _avsc.default.Type.forSchema([(0, _factories.errorContractFactory)("RequestContract", AVRORule)]) : _avsc.default.Type.forSchema([(0, _factories.actionContractFactory)("RequestContract", AVRORule)]));
-    return Type.fromBuffer(content);
+    } = is), response ? _avsc.default.Type.forSchema([(0, _factories.responseContractFactory)("ResponseContract", AVRORule)]) : error ? _avsc.default.Type.forSchema([(0, _factories.errorContractFactory)()]) : _avsc.default.Type.forSchema([(0, _factories.actionContractFactory)("RequestContract", AVRORule)]));
+    return _content = content, Type.fromBuffer(_content);
   } catch (error) {
     throw {
       name: (error === null || error === void 0 ? void 0 : error.name) || "Transformer::fromAVRO:failed[type:".concat(type, "]"),
