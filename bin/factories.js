@@ -6,15 +6,12 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.errorContractFactory = exports.responseContractFactory = exports.actionEmptyContractFactory = exports.actionContractFactory = void 0;
+exports.errorContractFactory = exports.responseContractFactory = exports.actionContractFactory = void 0;
 
 var actionContractFactory = (name, fields) => ({
   name,
   type: "record",
   fields: [{
-    name: "action",
-    type: "string"
-  }, {
     name: "data",
     type: {
       type: "record",
@@ -23,26 +20,11 @@ var actionContractFactory = (name, fields) => ({
   }]
 });
 /**
- * An action contract factory for empty parameters
- */
-
-
-exports.actionContractFactory = actionContractFactory;
-
-var actionEmptyContractFactory = name => ({
-  name,
-  type: "record",
-  fields: [{
-    name: "action",
-    type: "string"
-  }]
-});
-/**
  * A standard response contract factory
  */
 
 
-exports.actionEmptyContractFactory = actionEmptyContractFactory;
+exports.actionContractFactory = actionContractFactory;
 
 var responseContractFactory = (name, fields) => ({
   name,
