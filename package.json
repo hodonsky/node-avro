@@ -1,14 +1,15 @@
 {
   "name": "@donsky/node-avro",
-  "version": "0.4.1",
+  "version": "1.0.0",
   "description": "NodeJS AVRO Helpers for @donsky namespace",
   "main": "./bin/index.js",
   "directories": {
-    "lib": "lib"
+    "lib": "lib",
+    "tests": "tests"
   },
   "scripts": {
-    "test": "mocha --exit --require ./node_modules/babel-core/register",
-    "build": "npx babel --ignore 'node_modules/**' --ignore './*.test.js' --ignore 'tests/**' --out-dir ./bin ./lib"
+    "test": "mocha --exit --require @babel/register ./tests",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -38,12 +39,9 @@
     "avsc": "^5.4.21"
   },
   "devDependencies": {
-    "babel-preset-minify": "^0.5.1",
-    "babel-plugin-module-resolver": "^4.0.0",
     "@babel/cli": "^7.10.4",
     "@babel/core": "^7.10.4",
     "@babel/plugin-proposal-class-properties": "^7.10.4",
-    "@babel/plugin-proposal-private-methods": "^7.10.4",
     "@babel/plugin-proposal-do-expressions": "^7.10.4",
     "@babel/plugin-proposal-export-default": "^7.0.0-beta.32",
     "@babel/plugin-proposal-export-default-from": "^7.10.4",
@@ -55,14 +53,27 @@
     "@babel/plugin-proposal-optional-chaining": "^7.10.4",
     "@babel/plugin-proposal-partial-application": "^7.10.4",
     "@babel/plugin-proposal-pipeline-operator": "^7.10.4",
+    "@babel/plugin-proposal-private-methods": "^7.10.4",
     "@babel/plugin-proposal-throw-expressions": "^7.10.4",
     "@babel/plugin-transform-runtime": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
+    "@babel/register": "^7.10.5",
+    "babel-eslint": "^11.0.0-beta.0",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "babel-preset-minify": "^0.5.1",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
+    "eslint": "^7.6.0",
+    "eslint-loader": "^4.0.2",
+    "exports-loader": "^1.1.0",
     "mocha": "^8.0.1",
     "rimraf": "^3.0.2",
-    "sinon": "^9.0.2"
+    "sinon": "^9.0.2",
+    "terser-webpack-plugin": "^4.0.0",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-node-externals": "^2.5.0"
   },
   "babel": {
     "presets": [
@@ -72,6 +83,12 @@
           "targets": {
             "esmodules": true
           }
+        }
+      ],
+      [
+        "minify",
+        {
+          "mangle": true
         }
       ]
     ],
@@ -97,8 +114,10 @@
       ]
     ],
     "ignore": [
-      "node_modules/**/*"
+      "node_modules/**/*",
+      "./*.test.js",
+      "tests/**"
     ],
-    "sourceMaps": true
+    "sourceMaps": false
   }
 }
