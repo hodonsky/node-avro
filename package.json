@@ -1,7 +1,7 @@
 {
-  "name": "@donsky/node-avro",
+  "name": "@hodonsky/node-avro",
   "version": "1.0.0",
-  "description": "NodeJS AVRO Helpers for @donsky namespace",
+  "description": "NodeJS AVRO Helpers for @hodonsky/node-gateway and @hodonsky/node-service",
   "main": "./bin/index.js",
   "directories": {
     "lib": "lib",
